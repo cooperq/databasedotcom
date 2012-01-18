@@ -35,6 +35,7 @@ module Databasedotcom
     # The CA file configured for this instance, if any
     attr_accessor :ca_file
     # The SSL verify mode configured for this instance, if any
+    attr_accessor :ca_path
     attr_accessor :verify_mode
 
     # Returns a new client object. _options_ can be one of the following
@@ -89,6 +90,7 @@ module Databasedotcom
       self.version = self.version.to_s if self.version
       self.sobject_module = ENV['DATABASEDOTCOM_SOBJECT_MODULE'] || @options[:sobject_module]
       self.ca_file = ENV['DATABASEDOTCOM_CA_FILE'] || @options[:ca_file]
+      self.ca_path = ENV['DATABASEDOTCOM_CA_PATH'] || @options[:ca_path]
       self.verify_mode = ENV['DATABASEDOTCOM_VERIFY_MODE'] || @options[:verify_mode]
       self.verify_mode = self.verify_mode.to_i if self.verify_mode
   end
